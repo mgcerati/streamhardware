@@ -1,8 +1,9 @@
 import React from "react";
 import { Container,Nav,Navbar,NavDropdown } from "react-bootstrap";
+import { BsFillCartCheckFill } from 'react-icons/bs';
 import './NavBar.css'
 
-let NavBar = () =>{
+const NavBar = () =>{
     return(
         <>
   <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -20,6 +21,7 @@ let NavBar = () =>{
         <NavDropdown.Divider />
         <NavDropdown.Item href="#action/3.4">Todo</NavDropdown.Item>
       </NavDropdown>
+      <Nav.Link href="#carrito"><BsFillCartCheckFill/></Nav.Link>
     </Nav>
   </Navbar.Collapse>
   </Container>
