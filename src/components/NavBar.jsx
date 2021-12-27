@@ -1,6 +1,6 @@
 import React from "react";
 import { Container,Nav,Navbar,NavDropdown } from "react-bootstrap";
-import { BsFillCartCheckFill } from 'react-icons/bs';
+import Cartwidget from "./CartWidget";
 import './NavBar.css'
 
 const NavBar = () =>{
@@ -21,7 +21,7 @@ const NavBar = () =>{
         <NavDropdown.Divider />
         <NavDropdown.Item href="#action/3.4">Todo</NavDropdown.Item>
       </NavDropdown>
-      <Nav.Link href="#carrito"><BsFillCartCheckFill/></Nav.Link>
+      <Nav.Link href="#carrito"><Cartwidget/></Nav.Link>
     </Nav>
   </Navbar.Collapse>
   </Container>
