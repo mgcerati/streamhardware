@@ -7,7 +7,6 @@ const Cartwidget = () =>{
         <div>
             <BsFillCartCheckFill className="cartwidget"/>
         </div>
-      
     )
 }
 export default Cartwidget
