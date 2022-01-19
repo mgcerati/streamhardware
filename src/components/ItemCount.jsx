@@ -1,25 +1,30 @@
 import React , { useState } from "react";
 import './NavBar.css'
 
-const ItemCount = ({min, max}) =>{ 
+function ItemCount({ stock, onAdd }){
+    
+    const initial = 1
 
-const [counter, setCounter] = useState(min)
+    const [counter, setCounter] = useState(initial)
 
-const handleIncrement = () => {
-    counter < max ? setCounter(prev => prev + 1 ) : alert("Maxima unidades alcanzada")
-}
+    const handleIncrement = () => {
+        counter < stock 
+        ? setCounter(prev => prev + 1 ) 
+        : alert("Maxima unidades alcanzada")
+    };
 
-const handleDecrement = () => {
-    counter > min ? setCounter(prev => prev - 1 ) : alert("Minimo de compra es 1")
-
-}
+    const handleDecrement = () => {
+        counter > initial &&
+        setCounter(prev => prev - 1 ) 
+    };
 
     return(
         <div className="counter">
-            <h1>{counter}</h1>
-            <a href="#" class="btn btn-primary" button onClick={handleIncrement}>+</a>
-            <a href="#" class="btn btn-primary" onClick={handleDecrement}>-</a>
+            <h1>Cantidad: {counter}</h1>
+            <button onClick={handleIncrement}>+</button>
+            <button onClick={() => onAdd(counter)}>Agregar al Carrito</button> 
+            <button onClick={handleDecrement}>-</button>
         </div>      
-    )
+    );
 }
-export default ItemCount
+export default ItemCount;

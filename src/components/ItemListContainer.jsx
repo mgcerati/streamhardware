@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { traerProductos } from "../products.jsx";
 import ItemList from "./ItemList";
 
@@ -9,14 +10,26 @@ const ItemListContainer = (props) => {
 
     const [data, setData] = useState([]);
 
+    const{categoriaId} = useParams()
+
     useEffect(() => {
-        traerProductos.then((res)=> {
-        setData(res);
-    })
-    .catch((error) => {
-        console.error(error)
-    })
-    }, []);
+        if(categoriaId){
+            traerProductos.then((res)=> {
+                setData(res.filter(prod => prod.category === categoriaId));
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+        } else {
+            traerProductos.then((res)=> {
+                setData(res);
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+        }
+        
+    }, [categoriaId]);
     
     
 
