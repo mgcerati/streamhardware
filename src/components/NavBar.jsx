@@ -5,6 +5,7 @@ import './NavBar.css'
 import {Link} from 'react-router-dom'
 
 const NavBar = () =>{
+
     return(
         <>
   <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -22,7 +23,10 @@ const NavBar = () =>{
         <NavDropdown.Divider />
         <NavDropdown.Item ><Link to='/todo'>Todo</Link></NavDropdown.Item>
       </NavDropdown>
-      <Nav.Link><Link to='/cart'><Cartwidget/></Link></Nav.Link>
+      <Nav.Link>
+        <Link to='/cart'><Cartwidget/></Link>
+        </Nav.Link>
+        
     </Nav>
   </Navbar.Collapse>
   </Container>

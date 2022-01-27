@@ -44,6 +44,13 @@ export const CartContextProvider = ({children}) => {
         return totalCarrito
     }
 
+    const totalUnidades = () => {
+        const totalUnidadesCarrito = cartList.reduce((prev,curr) => prev + curr.counter,
+        0)
+
+        return totalUnidadesCarrito
+    }
+
     return(
 
         <CartContext.Provider value={{
@@ -51,7 +58,8 @@ export const CartContextProvider = ({children}) => {
             agregarAlCarrito,
             vaciarCarrito,
             eliminarProducto,
-            total
+            total,
+            totalUnidades
         }}>
             {children}
         </CartContext.Provider>
